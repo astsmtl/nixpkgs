@@ -370,6 +370,8 @@ with pkgs;
   buildFHSUserEnvChroot = callPackage ../build-support/build-fhs-userenv { };
   buildFHSUserEnvBubblewrap = callPackage ../build-support/build-fhs-userenv-bubblewrap { };
 
+  arcadia = callPackages ../local/arcadia { };
+
   buildMaven = callPackage ../build-support/build-maven.nix {};
 
   c64-debugger = callPackage ../applications/emulators/c64-debugger { };
