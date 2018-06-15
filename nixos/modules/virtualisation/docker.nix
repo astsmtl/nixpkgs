@@ -158,6 +158,15 @@ in
         Docker package to be used in the module.
       '';
     };
+
+    enable_ipv6 = mkOption {
+      default = false;
+      type = types.bool;
+      example = true;
+      description = ''
+        Enable IPv6 networking (NAT) for containers.
+      '';
+    };
   };
 
   ###### implementation
@@ -172,6 +181,23 @@ in
         ++ optional cfg.enableNvidia pkgs.nvidia-docker;
       users.groups.docker.gid = config.ids.gids.docker;
       systemd.packages = [ cfg.package ];
+
+      environment.etc = {
+        "docker/daemon.json" = {
+          source = pkgs.writeText "docker-daemon.json"
+            ''
+            {
+              "ipv6": true,
+              "fixed-cidr-v6": "fd55:20ba:6771:0001::/64"
+            }
+            '';
+          mode = "0644";
+        };
+      };
+
+      networking.firewall.extraCommands = ''
+        ip6tables -t nat -A POSTROUTING -s fd55:20ba:6771:1::/64 ! -o docker0 -j MASQUERADE
+      '';
 
       systemd.services.docker = {
         wantedBy = optional cfg.enableOnBoot "multi-user.target";
