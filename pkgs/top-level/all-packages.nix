@@ -372,6 +372,8 @@ with pkgs;
 
   arcadia = callPackages ../local/arcadia { };
 
+  unreal-dev = callPackage ../local/unreal-dev { };
+
   buildMaven = callPackage ../build-support/build-maven.nix {};
 
   c64-debugger = callPackage ../applications/emulators/c64-debugger { };
