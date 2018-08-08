@@ -9056,6 +9056,8 @@ with pkgs;
 
   ma1sd = callPackage ../servers/ma1sd { };
 
+  mactelnet = callPackage ../tools/networking/mactelnet { };
+
   mailcatcher = callPackage ../development/web/mailcatcher { };
 
   makebootfat = callPackage ../tools/misc/makebootfat { };
