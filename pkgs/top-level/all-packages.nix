@@ -13650,6 +13650,8 @@ with pkgs;
 
   inherit (pidginPackages) pidgin;
 
+  pychess = callPackage ../games/pychess { };
+
   pithos = callPackage ../applications/audio/pithos {
     pythonPackages = python3Packages;
   };
