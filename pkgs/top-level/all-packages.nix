@@ -32393,6 +32393,8 @@ with pkgs;
 
   purpur = callPackage ../games/purpur { };
 
+  pychess = callPackage ../games/pychess { };
+
   pikopixel = callPackage ../applications/graphics/pikopixel { };
 
   pithos = callPackage ../applications/audio/pithos {
