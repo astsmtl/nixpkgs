@@ -23041,6 +23041,8 @@ with pkgs;
 
   qm-dsp = callPackage ../development/libraries/audio/qm-dsp { };
 
+  qm-vamp-plugins = callPackage ../development/libraries/audio/qm-vamp-plugins { };
+
   qradiolink = callPackage ../applications/radio/qradiolink { };
 
   qrupdate = callPackage ../development/libraries/qrupdate { };
