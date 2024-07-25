@@ -9487,6 +9487,8 @@ with pkgs;
     nodejs = nodejs_22;
   };
 
+  qm-vamp-plugins = callPackage ../development/libraries/audio/qm-vamp-plugins { };
+
   qradiolink = callPackage ../applications/radio/qradiolink {
     protobuf = protobuf_21;
   };
